@@ -30,7 +30,7 @@ module CrossoverEstate
         :port                 => 587,
         :domain               => 'gmail.com',
         :user_name            => 'ycbtrmail@gmail.com',
-        :password             => 'ycbtr1234',
+        :password             => 'ycbtr12345',
         :authentication       => 'plain',
         :enable_starttls_auto => true
     }

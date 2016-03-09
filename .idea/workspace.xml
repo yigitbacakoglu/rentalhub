@@ -67,10 +67,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="application.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/application.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="25" selection-start="1113" selection-end="1190" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
+            <state line="32" column="44" selection-start="1517" selection-end="1517" vertical-scroll-proportion="0.5620609" vertical-offset="0" max-vertical-offset="854">
               <folding />
             </state>
           </provider>
@@ -85,10 +85,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="production.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="production.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="91" selection-start="3392" selection-end="3392" vertical-scroll-proportion="0.89461356" vertical-offset="421" max-vertical-offset="1320">
+            <state line="79" column="91" selection-start="3392" selection-end="3392" vertical-scroll-proportion="0.0" vertical-offset="421" max-vertical-offset="1320">
               <folding />
             </state>
           </provider>
@@ -171,8 +171,8 @@
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20160309132238_add_confirmable_to_devise.rb" />
         <option value="$PROJECT_DIR$/config/initializers/devise.rb" />
-        <option value="$PROJECT_DIR$/config/application.rb" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
+        <option value="$PROJECT_DIR$/config/application.rb" />
       </list>
     </option>
   </component>
@@ -794,13 +794,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/application.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="25" selection-start="1113" selection-end="1190" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="854">
@@ -824,7 +817,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="91" selection-start="3392" selection-end="3392" vertical-scroll-proportion="0.89461356" vertical-offset="421" max-vertical-offset="1320">
+        <state line="79" column="91" selection-start="3392" selection-end="3392" vertical-scroll-proportion="0.0" vertical-offset="421" max-vertical-offset="1320">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/application.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="44" selection-start="1517" selection-end="1517" vertical-scroll-proportion="0.5620609" vertical-offset="0" max-vertical-offset="854">
           <folding />
         </state>
       </provider>
