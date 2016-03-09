@@ -3,7 +3,9 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,:confirmable
+
+  attr_accessor :login
 
   has_many :properties
   has_many :wish_lists
@@ -11,6 +13,14 @@ class User < ActiveRecord::Base
 
   scope :owner, -> { where(role: 'Owner') }
   scope :tenant,  -> { where(role: 'Tenant') }
+
+  validates :username,
+            :presence => true,
+            :uniqueness => {
+                :case_sensitive => false
+            }
+  validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
+
 
   before_save :set_role
 
@@ -51,6 +61,15 @@ class User < ActiveRecord::Base
 
   def fullname
     "#{self.firstname} #{self.lastname}"
+  end
+
+  def self.find_for_database_authentication(warden_conditions)
+    conditions = warden_conditions.dup
+    if login = conditions.delete(:login)
+      where(conditions.to_hash).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+    elsif conditions.has_key?(:username) || conditions.has_key?(:email)
+      where(conditions.to_hash).first
+    end
   end
 
   private
