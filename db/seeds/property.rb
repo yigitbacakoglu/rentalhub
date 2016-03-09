@@ -9,7 +9,7 @@ p.city = 'Balikesir'
 p.country = 'TR'
 p.street1 = 'Mevlana Cad.'
 p.zipcode = 10100
-p.user = User.agent.first
+p.user = User.owner.first
 p.save
 
 
@@ -25,5 +25,5 @@ p.country = 'TR'
 p.street1 = 'Ayvalik'
 p.street2 = 'Cunda Island'
 p.zipcode = 10100
-p.user = User.agent.first
+p.user = User.owner.first
 p.save

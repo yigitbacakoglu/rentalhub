@@ -3,24 +3,32 @@
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), validate: true) do |f| %>
     <%= f.error_notification %>
 
+<div class="row">
+
     <div class="form-inputs">
 
       <div class="col-sm-6">
-        <%= f.input :firstname %>
-        <%= f.input :lastname %>
-        <%= f.input :description, as: :text, label: 'About you' %>
+        <%= f.fields_for :profile do |p| %>
+            <% begin %>
+                <%= render partial: "devise/registrations/profile/#{resource.role.downcase}_form", locals: {p: p, f: f} %>
+            <% rescue %>
+                <%= render partial: "devise/registrations/profile/tenant_form", locals: {p: p, f: f} %>
+            <% end %>
+            <%= p.input :terms, as: :boolean %>
+      <% end %>
+
       </div>
 
       <div class="col-sm-6">
           <%= f.input :email, required: true, autofocus: true %>
           <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
           <%= f.input :password_confirmation, required: true %>
-          <%= f.select :role, ['Customer', 'Agent'] %>
       </div>
 
     </div>
+</div>
 
-    <div class="form-actions">
+<div class="form-actions">
       <%= f.button :submit, "Sign up" %>
     </div>
 <% end %>

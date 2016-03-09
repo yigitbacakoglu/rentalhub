@@ -7,23 +7,38 @@ class User < ActiveRecord::Base
 
   has_many :properties
   has_many :wish_lists
-  validates :firstname, :lastname, :description, :presence => true
+  has_one :profile
 
-  scope :agent, -> { where(role: 'Agent') }
-  scope :customer,  -> { where(role: 'Customer') }
+  scope :owner, -> { where(role: 'Owner') }
+  scope :tenant,  -> { where(role: 'Tenant') }
 
   before_save :set_role
 
-  def customer?
-    self.role == 'Customer'
+  delegate :firstname, :lastname, :description, :business_name, to: :profile
+  accepts_nested_attributes_for :profile
+
+  def tenant?
+    self.role == 'Tenant'
   end
 
   def admin?
     self.role == 'Admin'
   end
 
-  def agent?
-    self.role == 'Agent'
+  def owner?
+    self.role == 'Owner'
+  end
+
+  def provider?
+    self.role == 'Provider'
+  end
+
+  def display_name
+    if self.provider?
+      business_name
+    else
+      fullname
+    end
   end
 
   def self.current
@@ -42,7 +57,7 @@ class User < ActiveRecord::Base
 
   def set_role
     if self.role == 'Admin' && User.current.present? && !User.current.admin?
-      self.role = 'Customer'
+      self.role = 'Tenant'
     end
   end
 

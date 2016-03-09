@@ -10,22 +10,22 @@ user.save
 
 
 user = User.new
-user.email = 'agent@example.net'
-user.firstname = 'Agent'
+user.email = 'owner@example.net'
+user.firstname = 'Owner'
 user.lastname = 'User'
 user.description = 'This is an example description for my account. '
-user.role = 'Agent'
+user.role = 'Owner'
 user.password = 12345678
 user.password_confirmation = 12345678
 user.save
 
 
 user = User.new
-user.email = 'customer@example.net'
-user.firstname = 'customer'
+user.email = 'tenant@example.net'
+user.firstname = 'tenant'
 user.lastname = 'User'
 user.description = 'This is an example description for my account. '
-user.role = 'Customer'
+user.role = 'Tenant'
 user.password = 12345678
 user.password_confirmation = 12345678
 user.save

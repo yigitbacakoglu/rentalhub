@@ -74,8 +74,8 @@ class PropertiesController < Backend::BaseController
   end
 
   def authorize_user
-    if @current_user.customer?
-      flash[:warning] = 'You need to signup as an agent to create a new property.'
+    if @current_user.tenant?
+      flash[:warning] = 'You need to signup as an owner to create a new property.'
       redirect_to root_path and return
     end
   end

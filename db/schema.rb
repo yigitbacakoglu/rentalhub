@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160208104043) do
+ActiveRecord::Schema.define(version: 20160309101545) do
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "firstname"
+    t.string   "lastname"
+    t.text     "description"
+    t.string   "business_name"
+    t.string   "abn"
+    t.text     "service_provided"
+    t.string   "postcode"
+    t.text     "reason"
+    t.boolean  "terms"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
 
   create_table "properties", force: :cascade do |t|
     t.string   "city"
