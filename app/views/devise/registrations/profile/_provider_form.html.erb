@@ -1,6 +1,18 @@
-<%= p.input :business_name %>
-<%= p.input :abn %>
-<%= p.input :service_provided %>
-<%= p.input :postcode %>
-<%= p.input :reason, label: 'Reason for coming RentalHub' %>
+<fieldset>
+  <legend>User Profile</legend>
+  <%= p.input :firstname %>
+  <%= p.input :lastname %>
+  <%= p.input :postcode %>
+</fieldset>
+
+<fieldset>
+  <legend>Business Profile</legend>
+  <%= p.input :business_name %>
+  <%= p.input :abn %>
+  <%= p.input :service_provided %>
+  <%= p.input :business_postcode, label: 'Postcode' %>
+</fieldset>
+
+<%= p.input :reason, collection: [["Reason 1", 'reason1'],["Reason 2", 'reason2']], prompt: 'Please select', label: 'Reason for coming RentalHub' %>
+
 <%= f.hidden_field :role, value: 'Provider' %>

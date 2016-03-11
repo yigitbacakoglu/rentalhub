@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_in).push(:login)
   end
 
+  def after_sign_in_path_for(resource_or_scope)
+    request.env['omniauth.origin'] || stored_location_for(resource_or_scope) || backend_profile_path
+  end
+
 
 
 end

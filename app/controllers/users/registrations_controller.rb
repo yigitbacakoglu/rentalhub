@@ -22,4 +22,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
 
+  # The default url to be used after updating a resource. You need to overwrite
+  # this method in your own RegistrationsController.
+  def after_update_path_for(resource)
+    backend_profile_path
+  end
+
+
+
+
 end

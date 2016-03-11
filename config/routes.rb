@@ -14,13 +14,13 @@ Rails.application.routes.draw do
       get 'users/:id/properties', to: 'users#properties', as: :user_properties
 
       resources :properties, only: [:index, :show] do
-      member do
-        put :wish
-        put :unwish
+        member do
+          put :wish
+          put :unwish
+        end
       end
-    end
 
-  end
+    end
   end
 
   resources :properties, only: [:index, :show] do
@@ -37,7 +37,7 @@ Rails.application.routes.draw do
     resources :properties
     resources :reports
     resources :wish_lists, only: :index
-
+    get :profile, to: 'profile#index'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
