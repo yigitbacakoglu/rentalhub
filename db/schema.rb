@@ -11,7 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311211954) do
+ActiveRecord::Schema.define(version: 20160426174006) do
+
+  create_table "assets", force: :cascade do |t|
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+    t.integer  "viewable_id"
+    t.string   "viewable_type"
+    t.string   "type"
+    t.integer  "user_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "leases", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "property_id"
+    t.date     "from_date"
+    t.date     "to_date"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.decimal  "price"
+  end
+
+  add_index "leases", ["property_id"], name: "index_leases_on_property_id"
+  add_index "leases", ["user_id"], name: "index_leases_on_user_id"
 
   create_table "profiles", force: :cascade do |t|
     t.integer  "user_id"
@@ -40,8 +66,8 @@ ActiveRecord::Schema.define(version: 20160311211954) do
     t.float    "long"
     t.string   "zipcode"
     t.integer  "user_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.string   "title"
     t.text     "description"
     t.float    "price"
@@ -50,9 +76,26 @@ ActiveRecord::Schema.define(version: 20160311211954) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "listing_type"
+    t.boolean  "connection",         default: false
+    t.datetime "deleted_at"
+    t.string   "owner_email"
+    t.string   "owner_phone"
+    t.string   "owner_name"
+    t.string   "verification_token"
   end
 
   add_index "properties", ["user_id"], name: "index_properties_on_user_id"
+
+  create_table "user_properties", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "property_id"
+    t.string   "state"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "user_properties", ["property_id"], name: "index_user_properties_on_property_id"
+  add_index "user_properties", ["user_id"], name: "index_user_properties_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

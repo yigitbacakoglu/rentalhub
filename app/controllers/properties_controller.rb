@@ -6,7 +6,7 @@ class PropertiesController < BaseController
   # GET /properties.json
   def index
     params[:q] ||= {}
-    @search = Property.search params[:q]
+    @search = Property.not_connection.search params[:q]
     @properties = @search.result(distinct: :true).page(params[:page])
 
     @hash = Gmaps4rails.build_markers(@properties) do |property, marker|
@@ -36,6 +36,6 @@ class PropertiesController < BaseController
   private
 
   def set_property
-    @property = Property.find(params[:id])
+    @property = Property.not_connection.find(params[:id])
   end
 end
