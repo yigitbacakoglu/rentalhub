@@ -1,12 +1,22 @@
-<%= simple_form_for([:backend, @property], validate: true) do |f| %>
-    <%= f.error_notification %>
+<%= simple_nested_form_for([:backend, @property], validate: true) do |f| %>
+    <%= render_errors @property %>
     <div class="form-inputs">
-      <%= f.input :listing_type, collection: ['For Rent', 'For Sale'], as: :select %>
-      <%= f.input :title %>
-      <%= image_tag @property.image.url(:thumb) %>
-      <%= f.input :image %>
+      <% if @current_user.tenant? %>
+          <%= f.input :owner_name %>
+          <%= f.input :owner_email %>
+          <%= f.input :owner_phone %>
+      <% else %>
+          <%= f.input :title %>
+      <% end %>
+
+      <%= f.fields_for :images do |i| %>
+          <%= image_tag i.object.attachment.url(:thumb), height: '100px', width: '100px' %>
+          <%= i.input :attachment, input_html: {class: 'files', onchange: 'MyUtils.UpdatePreview(this);'} %>
+          <%= i.link_to_remove "Remove this image" %>
+      <% end %>
+      <p><%= f.link_to_add "Add a image", :images %></p>
+
       <%= f.input :description, as: :text %>
-      <%= f.input :price, as: :string, label: 'Price (USD)' %>
       <%= f.input :country %>
       <%= f.input :city %>
       <%= f.input :street1 %>

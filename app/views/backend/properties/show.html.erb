@@ -2,7 +2,9 @@
   <% if @property.user == @current_user %>
       <%= link_to 'Edit', edit_backend_property_path(@property) %> |
       <%= link_to 'Back', backend_properties_path %>
-  <% end %>
+  <% elsif @current_user.owner? && @property.verification_token == params[:token] %>
+      <%= link_to 'Own this property', own_backend_property_path(@property, token: params[:token] ), data: {:method => :put, confirm: 'Are you sure?'} %>
+<% end %>
 
   <h2><%= @property.title %>
     <small>

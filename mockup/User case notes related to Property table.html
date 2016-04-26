@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="exporter-version" content="Evernote Mac 6.6 (453323)"/><meta name="altitude" content="34.25370788574219"/><meta name="author" content="Ed"/><meta name="created" content="2016-04-14 05:14:58 +0000"/><meta name="latitude" content="-33.88548643327059"/><meta name="longitude" content="151.2004855488243"/><meta name="source" content="desktop.mac"/><meta name="updated" content="2016-04-14 05:36:56 +0000"/><title>User case notes related to Property table</title></head><body>
+<div><a href="https://drive.google.com/file/d/0B1pFKPsA_0XsYmVIWmJ0YVZWMUE/view?usp=sharing"/><a href="https://drive.google.com/file/d/0B1pFKPsA_0XsYmVIWmJ0YVZWMUE/view?usp=sharing">https://drive.google.com/file/d/0B1pFKPsA_0XsYmVIWmJ0YVZWMUE/view?usp=sharing</a></div>
+<div><br/></div>
+<div><br/></div>
+<div>The first thing to understand about the RentalHub model is that it isn’t an estate agent website. There is no stock of properties to rent that I manage. The purpose of the RentalHub model is to allow tenants and owners to manage a property between themselves communicating and administering the tasks required to do this through the RentalHub system.</div>
+<div><br/></div>
+<div>For this reason, the ‘Property’  is the central item that all users of the system are associated with.</div>
+<div><br/></div>
+<div>A property will have attributes that do not change, such as RentalHub ID, Address, Property Type, Number of Bedrooms etc. But it will also have attributes that are changeable such as the Rental amount, Lease commencement and expiry dates, Tenants etc.</div>
+<div><br/></div>
+<div>Two examples of getting a property into the system.</div>
+<div><br/></div>
+<div>Firstly, the owner creates a RentalHub profile and inputs the details of the property. They will then have the ability to ask a tenant to create a RentalHub profile and connect to the property (acceptance or creation of a lease through RentalHub).</div>
+<div><br/></div>
+<div>The second way is when a tenants sends a connection request to the owner. In doing this they would put some basic details about the property into the system (thereby creating an initial property profile). The owner then has the option to complete the profile and create a lease through the system.</div>
+<div><br/></div>
+<div>It is required for the tenants to be able to initiate the profile creation as this provides a significant additional avenue of promoting the RentalHub system and also gathers data on rental properties that may be useful for other reasons.</div>
+<div><br/></div>
+<div>That is basically the main user cases that the property profile needs to be created for. If you need to have some part of it explained differently or clarified just let me know.</div>
+<div><br/></div>
+<div><br/></div>
+<div><b>Notes on Leases.</b></div>
+<div><br/></div>
+<div>With properties to owners, there will likely be just a 1 to 1 relationship, however there will be a 1 to many relationship between the the property and tenants. Therefore the design needs to accomodate something like ‘sessions’, (the lease term)  that the tenant is connected to a property.</div>
+<div><br/></div>
+<div>Therefore the property really is associated with the Lease rather than the tenants, and the tenants are associated with the lease.</div>
+<div><br/></div>
+<div>This relationship is what is indicated in the diagram.</div>
+<div><br/></div>
+</body></html>

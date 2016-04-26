@@ -87,5 +87,8 @@ gem "geocoder"
 
 gem 'country_select'
 
+gem 'quiet_assets'
+gem "nested_form"
+
 # For heroku
 gem 'rails_12factor', group: :production

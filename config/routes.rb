@@ -34,9 +34,13 @@ Rails.application.routes.draw do
 
 
   namespace :backend do
-    resources :properties
-    resources :reports
+    resources :properties do
+      member do
+        put :own
+      end
+    end
     resources :wish_lists, only: :index
+    resources :leases, only: :index
     get :profile, to: 'profile#index'
   end
 

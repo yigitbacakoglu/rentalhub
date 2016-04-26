@@ -1,6 +1,8 @@
-<h2>My Properties</h2>
+<h2><%= @current_user.tenant? ? 'My connection requests' : 'My Properties' %></h2>
 <% if @properties.blank? %>
-    <div>No property found</div>
+    <div>No property found <br/>
+      <%= link_to 'Connect Property', new_backend_property_path %>
+    </div>
 <% else %>
     <table class="table">
       <thead>

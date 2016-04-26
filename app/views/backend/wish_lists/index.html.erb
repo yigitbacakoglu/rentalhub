@@ -5,7 +5,6 @@
   <tr>
     <th>Image</th>
     <th>Property</th>
-    <th><%= sort_link @search, :property_price, 'Price' %></th>
   </tr>
   </thead>
 
@@ -19,7 +18,6 @@
           <br/>
           <%= "#{property.city}, #{property.country}" %>
         </td>
-        <td><%= number_to_currency property.price %></td>
       </tr>
   <% end %>
   </tbody>
